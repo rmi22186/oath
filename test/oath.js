@@ -14,6 +14,7 @@ var promiseTimeout = function (func, time) {
   return defer.promise;
 };
 
+
 describe('oath', function () {
   describe('Promise', function () {
     describe('.then', function () {
@@ -82,15 +83,18 @@ describe('oath', function () {
     };
 
     var promised = oath.promisify(nodeStyle);
-    xit('should call then on success', function (done) {
+
+
+    it('should call then on success', function (done) {
       promised(bigEnough)
         .then(function (message) {
           expect(message).to.equal('That\'s a big number!');
           done();
         });
+
     });
 
-    xit('should call catch on error', function (done) {
+    it('should call catch on error', function (done) {
       promised(tooSmall)
         .catch(function (message) {
           expect(message).to.equal('Not big enough!');
